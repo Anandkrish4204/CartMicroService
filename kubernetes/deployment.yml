@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart-kube-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: cart-pod
+  template:
+    metadata:
+      labels:
+        name: cart-pod
+    spec:
+      containers:
+        - name: cart-container
+          image: aangdocker/cart-app:latest
